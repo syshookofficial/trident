@@ -43,7 +43,7 @@
     <script>
         async function injectCode() {
             const code = document.getElementById('codeInput').value;
-            const response = await fetch('/inject', {
+            const response = await fetch('http://localhost:5000/inject', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: code })
@@ -53,7 +53,7 @@
         }
 
         async function executeCode() {
-            const response = await fetch('/execute', { method: 'POST' });
+            const response = await fetch('http://localhost:5000/execute', { method: 'POST' });
             const result = await response.text();
             document.getElementById('responseBox').innerText = result;
         }
